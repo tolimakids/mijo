@@ -41,15 +41,10 @@
 <body> 
 	<div id="fb-root"></div>
 	
-	<!-- The canvas must be inside a div called c2canvasdiv -->
 	<div id="c2canvasdiv">
 	
-		<!-- The canvas the project will render to.  If you change its ID, don't forget to change the
-		ID the runtime looks for in the jQuery events above (ready() and cr_sizeCanvas()). -->
 		<canvas id="c2canvas" width="640" height="480">
-			<!-- This text is displayed if the visitor's browser does not support HTML5.
-			You can change it, but it is a good idea to link to a description of a browser
-			and provide some links to download some popular HTML5-compatible browsers. -->
+		
 			<h1>Your browser does not appear to support HTML5.  Try upgrading your browser to the latest version.  <a href="http://www.whatbrowser.org">What is a browser?</a>
 			<br/><br/><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx">Microsoft Internet Explorer</a><br/>
 			<a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a><br/>
@@ -60,32 +55,27 @@
 		
 	</div>
 	
-	<!-- Pages load faster with scripts at the bottom -->
 	
-	<!-- Construct 2 exported games require jQuery. -->
-	<script src="jquery-2.0.0.min.js"></script>
+		<script src="jquery-2.0.0.min.js"></script>
 
 
 	
-    <!-- The runtime script.  You can rename it, but don't forget to rename the reference here as well.
-    This file will have been minified and obfuscated if you enabled "Minify script" during export. -->
 	<script src="c2runtime.js"></script>
 
     <script>
-		// Size the canvas to fill the browser viewport.
+		
 		jQuery(window).resize(function() {
 			cr_sizeCanvas(jQuery(window).width(), jQuery(window).height());
 		});
 		
-		// Start the Construct 2 project running on window load.
+		
 		jQuery(document).ready(function ()
 		{			
-			// Create new runtime using the c2canvas
+			
 			cr_createRuntime("c2canvas");
 		});
 		
-		// Pause and resume on page becoming visible/invisible
-		function onVisibilityChanged() {
+			function onVisibilityChanged() {
 			if (document.hidden || document.mozHidden || document.webkitHidden || document.msHidden)
 				cr_setSuspended(true);
 			else
